@@ -1,0 +1,102 @@
+header {
+    padding: 20px 0;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+
+    @include respond-to(sm) {
+        padding: 0;
+    }
+
+    @include respond-to(xs) {
+        padding: 0;
+    }
+
+    .wrapper {
+        background: $white;
+        padding: 25px;
+        position: relative;
+
+        @include respond-to(xs) {
+            padding: 15px;
+        }
+
+        .row {
+
+            @include respond-to(sm) {
+                flex-wrap: wrap;
+
+                .col {
+                    &:first-child {
+                        max-width: 60%;
+                        flex-basis: 60%;
+
+                    }
+
+                    &:last-child {
+                        flex-basis: 40%;
+                        max-width: 40%;
+                    }
+                }
+            }
+
+            @include respond-to(xs) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        menu {
+            ul {
+                display: flex;
+                gap: 20px;
+
+                @include respond-to(xs) {
+                    display: none;
+                    position: absolute;
+                    background: $white;
+                    left: 0;
+                    right: 0;
+                    top: 78px;
+                    padding: 15px;
+                }
+
+                li {
+                    @include respond-to(xs) {
+                        margin-bottom: 10px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .toggle-btn {
+                display: none;
+                margin-left: auto;
+                background: $bg-light;
+                border: none;
+                padding: 15px;
+
+                @include respond-to(xs) {
+                    display: block;
+
+                }
+            }
+        }
+
+        .cta {
+            display: flex;
+            justify-content: flex-end;
+
+            @include respond-to(xs) {
+                justify-content: flex-start;
+            }
+        }
+    }
+}

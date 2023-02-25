@@ -1,0 +1,128 @@
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    .row {
+        display: flex;
+
+        .col {
+            height: 100%;
+            flex-basis: 50%;
+            max-width: 50%;
+            margin: auto;
+        }
+    }
+}
+
+.btn {
+    font-size: 16px;
+    border: 1px solid $primary;
+    padding: 12px 25px;
+    transition: all .5s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    span {
+        &.icon {
+            height: 15px;
+
+            svg {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+
+    @include respond-to(xs) {
+        padding: 8px 24px;
+    }
+
+    &:hover {
+        color: $white;
+        background-color: $primary;
+
+        svg path {
+            stroke: $white;
+        }
+    }
+}
+
+
+.slide-top {
+    -webkit-animation: slide-top 0.5s ease-in 0.1s both;
+    animation: slide-top 0.5s ease-in 0.1s both;
+}
+
+@-webkit-keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.animated {
+    -webkit-animation-duration: 1000 ms;
+    animation-duration: 1000 ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.owl-animated-out {
+    z-index: 1
+}
+
+
+.owl-animated-in {
+    z-index: 0
+}
+
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

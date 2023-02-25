@@ -1,0 +1,257 @@
+section {
+    article {
+        overflow: hidden;
+
+        &.hero {
+            position: relative;
+
+            .slide {
+                position: relative;
+
+                figure img {
+
+                    @include respond-to(sm) {
+                        min-height: 800px;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+
+                    @include respond-to(xs) {
+                        min-height: 600px;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .content-block {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 1;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    flex-direction: column;
+
+                    .wrapper {
+                        max-width: 500px;
+                        padding: 0 15px;
+
+                        h2,
+                        p {
+                            color: $white;
+                            opacity: 0;
+                        }
+
+                        p {
+                            margin-bottom: 15px;
+                            letter-spacing: 1px;
+
+                            @include respond-to(xs) {
+                                letter-spacing: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .controls {
+                position: absolute;
+                bottom: 50px;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                width: 100%;
+                max-width: 1245px;
+                margin: 0 auto;
+                padding: 0 15px;
+                display: flex;
+                align-items: center;
+                gap: 25px;
+
+                .counter {
+                    display: flex;
+                    align-items: center;
+                    color: $white;
+                    gap: 10px;
+                    transition: all .5s;
+
+                    hr {
+                        width: 75px;
+                        border-color: $white;
+                    }
+                }
+
+                .next-btn {
+                    padding: 11px;
+                    position: relative;
+                    border: 1px solid $bg-light;
+
+                    button {
+                        width: 93px;
+                        height: 93px;
+                        background-size: cover;
+                        background-position: center;
+                        position: relative;
+                        text-decoration: none;
+                        padding: 20px;
+                        text-align: center;
+                        display: inline-block;
+                        color: $bg-light;
+                        transition: all .5s;
+                        border: none;
+                        z-index: 100;
+
+                        &:hover,
+                        &:focus {
+                            outline: none;
+                            border: none;
+                        }
+                    }
+
+                    .shape {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        overflow: hidden;
+
+                        div {
+                            position: absolute;
+                            background: $bg-light;
+
+                            &:nth-child(1),
+                            &:nth-child(3) {
+                                left: 0;
+                                right: 0;
+                                height: 4px;
+                                width: 0%;
+                            }
+
+                            &:nth-child(2),
+                            &:nth-child(4) {
+                                top: -1px;
+                                bottom: 0;
+                                width: 4px;
+                                height: 0%;
+                            }
+
+                            &:nth-child(1) {
+                                top: -1px;
+                            }
+
+                            &:nth-child(2) {
+                                right: -1px;
+                            }
+
+                            &:nth-child(3) {
+                                bottom: -1px;
+                                left: 100%;
+                                width: 100%;
+                            }
+
+                            &:nth-child(4) {
+                                left: -1px;
+                                top: 100%;
+                                height: 100%;
+                            }
+                        }
+
+
+                    }
+                }
+            }
+        }
+
+        &.product {
+            padding: 100px 0;
+            overflow: hidden;
+
+            @include respond-to(xs) {
+                padding: 50px 0;
+            }
+
+            .title-block {
+                text-align: center;
+                max-width: 800px;
+                margin: 0 auto 50px;
+                padding: 0 15px;
+
+                h4 {
+                    margin-top: 30px;
+
+                    @include respond-to(xs) {
+                        margin-top: 15px;
+                    }
+                }
+            }
+
+            .owl-stage-outer {
+                overflow: visible !important;
+                cursor: url('../images/mouse-drag.svg'), auto;
+
+                .owl-item {
+                    opacity: 0;
+                    transition: all 0.2s;
+
+                    &.active {
+                        opacity: 1;
+                    }
+
+                    .slide {
+                        transition: all 0.2s;
+
+                        .dis {
+                            cursor: pointer !important;
+                            opacity: 0;
+                            margin-top: 50px;
+                            text-align: center;
+                            position: relative;
+
+                            @include respond-to(xs) {
+                                margin-top: 20px;
+                            }
+
+                            h3 {
+                                margin-bottom: 15px;
+
+                                @include respond-to(xs) {
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+
+                        &.first {
+                            transform: translate3d(-315px, 56px, 0) rotate(-10deg);
+
+                            @include respond-to(sm) {
+                                transform: translate3d(-150px, 25px, 0) rotate(-10deg);
+                            }
+
+                            @include respond-to(xs) {
+                                transform: translate3d(-70px, 16px, 0) rotate(-10deg);
+                            }
+
+                        }
+
+                        &.last {
+                            transform: translate3d(315px, 56px, 0) rotate(10deg);
+
+                            @include respond-to(sm) {
+                                transform: translate3d(150px, 25px, 0) rotate(10deg);
+                            }
+
+                            @include respond-to(xs) {
+                                transform: translate3d(70px, 16px, 0) rotate(10deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

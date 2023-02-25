@@ -1,0 +1,9 @@
+$primary: #000000;
+$secondary: #7A7777;
+$white: #fff;
+$bg-light: #F9F4EE;
+
+$breakpoints: ("lg": ('max': 1920px, 'min': 1280px),
+    "sm": ('max': 1271px, 'min': 768px),
+    "xs": ('max': 767px, 'min': 320px),
+) !default;
